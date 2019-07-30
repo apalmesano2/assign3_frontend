@@ -75,11 +75,12 @@ export default {
     viewCustomers() {
       router.push("/customer-list");
     },
-
     viewInvestments() {
       router.push("/investment-list");
     },
-
+    viewStocks() {
+      router.push('/stock-list');
+    },
     getUser() {
       if (
         localStorage.getItem("isAuthenticates") &&

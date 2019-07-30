@@ -63,7 +63,7 @@ export default {
     },
 
     viewStocks() {
-
+      router.push("stock-list");
     },
 
     login() {
