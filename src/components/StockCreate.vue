@@ -45,7 +45,7 @@
                 />
               </v-container>
               <v-btn v-if="!isUpdate" class="blue white--text" @click="createStock">Save</v-btn>
-              <v-btn v-if="isUpdate" class="blue white--text" @click="createStock">Update</v-btn>
+              <v-btn v-if="isUpdate" class="blue white--text" @click="updateStock">Update</v-btn>
               <v-btn class="white black--text" @click="cancelOperation">Cancel</v-btn>
             </v-form>
           </v-card-text>
