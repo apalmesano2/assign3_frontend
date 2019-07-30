@@ -48,6 +48,7 @@
               style="max-height: 300px; overflow-y: auto"
             >
               <template slot="items" slot-scope="props">
+                <td>{{ props.item.pk }}</td>
                 <td>{{ props.item.cust_number }}</td>
                 <td>{{ props.item.name }}</td>
                 <td nowrap="true">{{ props.item.address }}</td>
@@ -87,11 +88,8 @@ export default {
     customerSize: 0,
     showMsg: "",
     headers: [
-      {
-        text: "Customer Number",
-        align: "left",
-        sortable: false
-      },
+      { text: "Record Number", sortable: false, align: "left" },
+      { text: "Customer Number", align: "left", sortable: false },
       { text: "Name", sortable: false, align: "left" },
       { text: "Address", sortable: false, align: "left" },
       { text: "City", sortable: false, align: "left" },
