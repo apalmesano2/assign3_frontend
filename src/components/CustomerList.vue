@@ -47,7 +47,7 @@
               fixed
               style="max-height: 300px; overflow-y: auto"
             >
-              <template slot="items" slot-scope="props">
+              <template v-slot:items="props">
                 <td>{{ props.item.pk }}</td>
                 <td>{{ props.item.cust_number }}</td>
                 <td>{{ props.item.name }}</td>

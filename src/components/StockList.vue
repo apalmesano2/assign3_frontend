@@ -47,7 +47,7 @@
               fixed
               style="max-height: 300px; overflow-y: auto"
             >
-              <template slot="items" slot-scope="props">
+              <template v-slot:items="props">
                 <td>{{ props.item.customer }}</td>
                 <td nowrap="true">{{ props.item.symbol }}</td>
                 <td nowrap="true">{{ props.item.name }}</td>
@@ -108,7 +108,6 @@ export default {
     },
     getStocks() {
       window.x = this;
-      debugger;
       apiService
         .getStockList()
         .then(response => {
