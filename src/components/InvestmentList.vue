@@ -42,7 +42,7 @@
             <v-data-table
               :headers="headers"
               :items="investments"
-              hide-actions
+              hide-default-footer
               class="elevation-1"
               fixed
               style="max-height: 300px; overflow-y: auto"

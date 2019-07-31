@@ -42,7 +42,7 @@
             <v-data-table
               :headers="headers"
               :items="stocks"
-              hide-actions
+              hide-default-footer
               class="elevation-1"
               fixed
               style="max-height: 300px; overflow-y: auto"
@@ -107,11 +107,13 @@ export default {
       }
     },
     getStocks() {
+      window.x = this;
+      debugger;
       apiService
         .getStockList()
         .then(response => {
           this.stocks = response.data.data;
-          this.stocks = this.stocks.length;
+          this.stockSize = this.stocks.length;
           if (
             localStorage.getItem("isAuthenticates") &&
             JSON.parse(localStorage.getItem("isAuthenticates")) === true

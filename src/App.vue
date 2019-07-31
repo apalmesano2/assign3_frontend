@@ -3,12 +3,12 @@
     <v-toolbar class="blue">
       <v-toolbar-title>Eagle Finance Service</v-toolbar-title>
       <v-toolbar-items>
-        <v-btn flat dark @click="goHome">Home</v-btn>
-        <v-btn flat dark @click="viewCustomers">Customers</v-btn>
-        <v-btn flat dark @click="viewStocks">Stocks</v-btn>
-        <v-btn flat dark @click="viewInvestments">Investments</v-btn>
-        <v-btn flat dark v-if="!authenticated" @click="login">Log in</v-btn>
-        <v-btn flat dark v-if="authenticated" @click="logout">Log Out</v-btn>
+        <v-btn text dark @click="goHome">Home</v-btn>
+        <v-btn text dark @click="viewCustomers">Customers</v-btn>
+        <v-btn text dark @click="viewStocks">Stocks</v-btn>
+        <v-btn text dark @click="viewInvestments">Investments</v-btn>
+        <v-btn text dark v-if="!authenticated" @click="login">Log in</v-btn>
+        <v-btn text dark v-if="authenticated" @click="logout">Log Out</v-btn>
       </v-toolbar-items>
     </v-toolbar>
     <v-content>

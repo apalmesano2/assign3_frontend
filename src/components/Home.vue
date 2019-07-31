@@ -28,7 +28,7 @@
                     <v-img :src="require('@/assets/images/customer.jpg')" height="200px"></v-img>
 
                     <v-card-actions>
-                      <v-btn flat color="orange" @click="viewCustomers">View Details</v-btn>
+                      <v-btn text color="orange" @click="viewCustomers">View Details</v-btn>
                     </v-card-actions>
                   </v-card>
                 </v-flex>
@@ -38,7 +38,7 @@
                     <v-img :src="require('@/assets/images/nonstock.jpg')" height="200px"></v-img>
 
                     <v-card-actions>
-                      <v-btn flat color="orange" @click="viewInvestments">View Details</v-btn>
+                      <v-btn text color="orange" @click="viewInvestments">View Details</v-btn>
                     </v-card-actions>
                   </v-card>
                 </v-flex>
@@ -47,7 +47,7 @@
                     <v-img :src="require('@/assets/images/stocks.jpg')" height="200px"></v-img>
 
                     <v-card-actions>
-                      <v-btn flat color="orange" @click="viewStocks">View Details</v-btn>
+                      <v-btn text color="orange" @click="viewStocks">View Details</v-btn>
                     </v-card-actions>
                   </v-card>
                 </v-flex>
