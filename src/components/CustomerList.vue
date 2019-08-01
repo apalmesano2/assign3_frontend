@@ -47,24 +47,9 @@
               fixed
               style="max-height: 300px; overflow-y: auto"
             >
-              <template v-slot:item="props">
-                <tr>
-                  <td>{{ props.item.pk }}</td>
-                  <td>{{ props.item.cust_number }}</td>
-                  <td>{{ props.item.name }}</td>
-                  <td nowrap="true">{{ props.item.address }}</td>
-                  <td nowrap="true">{{ props.item.city }}</td>
-                  <td nowrap="true">{{ props.item.state }}</td>
-                  <td nowrap="true">{{ props.item.zipcode }}</td>
-                  <td nowrap="true">{{ props.item.email }}</td>
-                  <td nowrap="true">{{ props.item.cell_phone }}</td>
-                  <td nowrap="true">
-                    <v-icon @click="updateCustomer(props.item)">edit</v-icon>
-                  </td>
-                  <td nowrap="true">
-                    <v-icon @click="deleteCustomer(props.item)">delete</v-icon>
-                  </td>
-                </tr>
+              <template v-slot:item.actions="{ item }">
+                <v-icon @click="updateCustomer(item)">mdi-pencil</v-icon>
+                <v-icon @click="deleteCustomer(item)">mdi-trash-can</v-icon>
               </template>
             </v-data-table>
           </v-flex>
@@ -90,17 +75,16 @@ export default {
     customerSize: 0,
     showMsg: "",
     headers: [
-      { text: "Record Number", sortable: false, align: "left" },
-      { text: "Customer Number", align: "left", sortable: false },
-      { text: "Name", sortable: false, align: "left" },
-      { text: "Address", sortable: false, align: "left" },
-      { text: "City", sortable: false, align: "left" },
-      { text: "State", sortable: false, align: "left" },
-      { text: "ZipCode", sortable: false, align: "left" },
-      { text: "Email", sortable: false, align: "left" },
-      { text: "Phone", sortable: false, align: "left" },
-      { text: "Update", sortable: false, align: "left" },
-      { text: "Delete", sortable: false, align: "left" }
+      { text: "Record Number", value:"pk", sortable: false, align: "left" },
+      { text: "Customer Number", value:"cust_number", align: "left", sortable: false },
+      { text: "Name", value:"name", sortable: false, align: "left" },
+      { text: "Address", value:"address", sortable: false, align: "left" },
+      { text: "City", value:"city", sortable: false, align: "left" },
+      { text: "State", value:"state", sortable: false, align: "left" },
+      { text: "ZipCode", value:"zipcode", sortable: false, align: "left" },
+      { text: "Email", value:"email", sortable: false, align: "left" },
+      { text: "Phone", value:"cell_phone", sortable: false, align: "left" },
+      { text:"Actions", name: "Actions", value: "actions" }
     ]
   }),
   mounted() {

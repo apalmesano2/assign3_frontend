@@ -47,22 +47,9 @@
               fixed
               style="max-height: 300px; overflow-y: auto"
             >
-              <template v-slot:item="props">
-                <tr>
-                  <td>{{ props.item.customer }}</td>
-                  <td nowrap="true">{{ props.item.category }}</td>
-                  <td nowrap="true">{{ props.item.description }}</td>
-                  <td nowrap="true">{{ props.item.acquired_value }}</td>
-                  <td nowrap="true">{{ props.item.acquired_date }}</td>
-                  <td nowrap="true">{{ props.item.recent_value }}</td>
-                  <td nowrap="true">{{ props.item.recent_date }}</td>
-                  <td nowrap="true">
-                    <v-icon @click="updateInvestment(props.item)">edit</v-icon>
-                  </td>
-                  <td nowrap="true">
-                    <v-icon @click="deleteInvestment(props.item)">delete</v-icon>
-                  </td>
-                </tr>
+              <template v-slot:item.actions="{ item }">
+                <v-icon @click="updateInvestment(item)">mdi-pencil</v-icon>
+                <v-icon @click="deleteInvestment(item)">mdi-trash-can</v-icon>
               </template>
             </v-data-table>
           </v-flex>
@@ -78,6 +65,7 @@
 <script>
 import router from "../router";
 import { APIService } from "../http/APIService";
+import vuetify from '../plugins/vuetify'
 const apiService = new APIService();
 
 export default {
@@ -88,15 +76,14 @@ export default {
     investmentSize: 0,
     showMsg: "",
     headers: [
-      { text: "Customer", sortable: false, align: "left" },
-      { text: "Category", sortable: false, align: "left" },
-      { text: "Description", sortable: false, align: "left" },
-      { text: "Acquired_Value", sortable: false, align: "left" },
-      { text: "Acquired_Date", sortable: false, align: "left" },
-      { text: "Recent_Value", sortable: false, align: "left" },
-      { text: "Recent_Date", sortable: false, align: "left" },
-      { text: "Update", sortable: false, align: "left" },
-      { text: "Delete", sortable: false, align: "left" }
+      { text: "Customer", value:"customer", sortable: false, align: "left" },
+      { text: "Category", value:"category", sortable: false, align: "left" },
+      { text: "Description", value:"description", sortable: false, align: "left" },
+      { text: "Acquired Value", value:"acquired_value", sortable: false, align: "left" },
+      { text: "Acquired Date", value:"acquired_date", sortable: false, align: "left" },
+      { text: "Recent Value", value:"recent_value", sortable: false, align: "left" },
+      { text: "Recent Date", value:"recent_date", sortable: false, align: "left" },
+      { text:"Actions", name:"Actions", value:"actions" }
     ]
   }),
   mounted() {

@@ -47,21 +47,9 @@
               fixed
               style="max-height: 300px; overflow-y: auto"
             >
-              <template v-slot:item="props">
-                <tr>
-                  <td>{{ props.item.customer }}</td>
-                  <td nowrap="true">{{ props.item.symbol }}</td>
-                  <td nowrap="true">{{ props.item.name }}</td>
-                  <td nowrap="true">{{ props.item.shares }}</td>
-                  <td nowrap="true">{{ props.item.purchase_price }}</td>
-                  <td nowrap="true">{{ props.item.purchase_date }}</td>
-                  <td nowrap="true">
-                    <v-icon @click="updateStock(props.item)">edit</v-icon>
-                  </td>
-                  <td nowrap="true">
-                    <v-icon @click="deleteStock(props.item)">delete</v-icon>
-                  </td>
-                </tr>
+              <template v-slot:item.actions="{ item }">
+                <v-icon @click="updateStock(item)">mdi-pencil</v-icon>
+                <v-icon @click="deleteStock(item)">mdi-trash-can</v-icon>
               </template>
             </v-data-table>
           </v-flex>
@@ -87,14 +75,13 @@ export default {
     stockSize: 0,
     showMsg: "",
     headers: [
-      { text: "Customer", sortable: false, align: "left" },
-      { text: "Symbol", sortable: false, align: "left" },
-      { text: "Name", sortable: false, align: "left" },
-      { text: "Shares", sortable: false, align: "left" },
-      { text: "Purchase Price", sortable: false, align: "left" },
-      { text: "Purchase Date", sortable: false, align: "left" },
-      { text: "Update", sortable: false, align: "left" },
-      { text: "Delete", sortable: false, align: "left" }
+      { text: "Customer", value:"customer", sortable: false, align: "left" },
+      { text: "Symbol", value:"symbol", sortable: false, align: "left" },
+      { text: "Name", value:"name", sortable: false, align: "left" },
+      { text: "Shares", value:"shares", sortable: false, align: "left" },
+      { text: "Purchase Price", value:"purchase_price", sortable: false, align: "left" },
+      { text: "Purchase Date", value:"purchase_date", sortable: false, align: "left" },
+      { text:"Actions", name: "Actions", value: "actions"}
     ]
   }),
   mounted() {
