@@ -47,19 +47,21 @@
               fixed
               style="max-height: 300px; overflow-y: auto"
             >
-              <template v-slot:items="props">
-                <td>{{ props.item.customer }}</td>
-                <td nowrap="true">{{ props.item.symbol }}</td>
-                <td nowrap="true">{{ props.item.name }}</td>
-                <td nowrap="true">{{ props.item.shares }}</td>
-                <td nowrap="true">{{ props.item.purchase_price }}</td>
-                <td nowrap="true">{{ props.item.purchase_date }}</td>
-                <td nowrap="true">
-                  <v-icon @click="updateStock(props.item)">edit</v-icon>
-                </td>
-                <td nowrap="true">
-                  <v-icon @click="deleteStock(props.item)">delete</v-icon>
-                </td>
+              <template v-slot:item="props">
+                <tr>
+                  <td>{{ props.item.customer }}</td>
+                  <td nowrap="true">{{ props.item.symbol }}</td>
+                  <td nowrap="true">{{ props.item.name }}</td>
+                  <td nowrap="true">{{ props.item.shares }}</td>
+                  <td nowrap="true">{{ props.item.purchase_price }}</td>
+                  <td nowrap="true">{{ props.item.purchase_date }}</td>
+                  <td nowrap="true">
+                    <v-icon @click="updateStock(props.item)">edit</v-icon>
+                  </td>
+                  <td nowrap="true">
+                    <v-icon @click="deleteStock(props.item)">delete</v-icon>
+                  </td>
+                </tr>
               </template>
             </v-data-table>
           </v-flex>

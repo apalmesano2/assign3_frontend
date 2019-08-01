@@ -47,22 +47,24 @@
               fixed
               style="max-height: 300px; overflow-y: auto"
             >
-              <template v-slot:items="props">
-                <td>{{ props.item.pk }}</td>
-                <td>{{ props.item.cust_number }}</td>
-                <td>{{ props.item.name }}</td>
-                <td nowrap="true">{{ props.item.address }}</td>
-                <td nowrap="true">{{ props.item.city }}</td>
-                <td nowrap="true">{{ props.item.state }}</td>
-                <td nowrap="true">{{ props.item.zipcode }}</td>
-                <td nowrap="true">{{ props.item.email }}</td>
-                <td nowrap="true">{{ props.item.cell_phone }}</td>
-                <td nowrap="true">
-                  <v-icon @click="updateCustomer(props.item)">edit</v-icon>
-                </td>
-                <td nowrap="true">
-                  <v-icon @click="deleteCustomer(props.item)">delete</v-icon>
-                </td>
+              <template v-slot:item="props">
+                <tr>
+                  <td>{{ props.item.pk }}</td>
+                  <td>{{ props.item.cust_number }}</td>
+                  <td>{{ props.item.name }}</td>
+                  <td nowrap="true">{{ props.item.address }}</td>
+                  <td nowrap="true">{{ props.item.city }}</td>
+                  <td nowrap="true">{{ props.item.state }}</td>
+                  <td nowrap="true">{{ props.item.zipcode }}</td>
+                  <td nowrap="true">{{ props.item.email }}</td>
+                  <td nowrap="true">{{ props.item.cell_phone }}</td>
+                  <td nowrap="true">
+                    <v-icon @click="updateCustomer(props.item)">edit</v-icon>
+                  </td>
+                  <td nowrap="true">
+                    <v-icon @click="deleteCustomer(props.item)">delete</v-icon>
+                  </td>
+                </tr>
               </template>
             </v-data-table>
           </v-flex>

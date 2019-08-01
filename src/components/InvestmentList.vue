@@ -47,20 +47,22 @@
               fixed
               style="max-height: 300px; overflow-y: auto"
             >
-              <template v-slot:items="props">
-                <td>{{ props.item.customer }}</td>
-                <td nowrap="true">{{ props.item.category }}</td>
-                <td nowrap="true">{{ props.item.description }}</td>
-                <td nowrap="true">{{ props.item.acquired_value }}</td>
-                <td nowrap="true">{{ props.item.acquired_date }}</td>
-                <td nowrap="true">{{ props.item.recent_value }}</td>
-                <td nowrap="true">{{ props.item.recent_date }}</td>
-                <td nowrap="true">
-                  <v-icon @click="updateInvestment(props.item)">edit</v-icon>
-                </td>
-                <td nowrap="true">
-                  <v-icon @click="deleteInvestment(props.item)">delete</v-icon>
-                </td>
+              <template v-slot:item="props">
+                <tr>
+                  <td>{{ props.item.customer }}</td>
+                  <td nowrap="true">{{ props.item.category }}</td>
+                  <td nowrap="true">{{ props.item.description }}</td>
+                  <td nowrap="true">{{ props.item.acquired_value }}</td>
+                  <td nowrap="true">{{ props.item.acquired_date }}</td>
+                  <td nowrap="true">{{ props.item.recent_value }}</td>
+                  <td nowrap="true">{{ props.item.recent_date }}</td>
+                  <td nowrap="true">
+                    <v-icon @click="updateInvestment(props.item)">edit</v-icon>
+                  </td>
+                  <td nowrap="true">
+                    <v-icon @click="deleteInvestment(props.item)">delete</v-icon>
+                  </td>
+                </tr>
               </template>
             </v-data-table>
           </v-flex>
